@@ -1,8 +1,7 @@
 const inquirer = require("inquirer");
-const allController = require("./controllers/all");
 const mysql = require("mysql")
 const figlet = require('figlet');
-
+const { all, role, department, employee } = require("./controllers")
 
 let connection = mysql.createConnection({
     host: "localhost",
@@ -20,7 +19,7 @@ let connection = mysql.createConnection({
  
 // Displays start graphic and starts the init function
 const start = () => {
-    figlet('     E - M - S', {
+    figlet('      E - M - S ', {
         font: 'Big'
     }, (err, data) => {
         if (err) {
@@ -29,7 +28,7 @@ const start = () => {
         console.log("\n")
         console.log(data);
         console.log("       ****************************************")
-        console.log("\n                    Welcome to the \n             Employee Management System!")
+        console.log("\n                    Welcome to Matt's \n             Employee Management System")
         console.log("\n       ****************************************")
         menu();
     })
@@ -54,23 +53,34 @@ function menu() {
     }])
     .then(function(response){
         if (response.Menu === "Add Departments"){
-            addDepartment()
+            department.addDepartment()
+        }
+        else if (response.Menu === "Add Roles"){
+            employee.addRoles()
+        }
+        else if (response.Menu === "Add Employees"){
+            employee.addEmployees()
         }
         else if (response.Menu === "View Departments"){
-            viewDepartments()
+            department.viewDepartments()
         }
-    })
-}
-function viewDepartments(){
-connection.query("select * from department", function(err, data){
-    console.table(data)
-    menu()
-})
-}
+        else if (response.Menu === "View Roles"){
+            role.viewRoles()
+        }
+        else if (response.Menu === "View Employees"){
+            employee.viewEmployees()
+        }
+        else if (response.Menu === "Update Employee Roles"){
+            role.updateEmployeeRoles()
+        }
+        else if (response.Menu === "Delete Employee"){
+            all.deleteEmployee()
+        }
+        else {
+            console.log("Good-bye");
+            process.exit(0);
+        };
+    });
+};
 
-function addDepartment(){
 
-}
-
-
-menu()
