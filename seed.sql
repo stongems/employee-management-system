@@ -13,7 +13,7 @@ insert into employee(first_name, last_name, role_id) values
 ("John","Doe",1),
 ("Mike","Chan",2),
 ("Ashley","Rodriguez",3),
-("Kevin","Tupik",4,),
+("Kevin","Tupik",4),
 ("Malia","Brown",5),
 ("Sarah","Lourd",6),
 ("Tom","Allen",7),
