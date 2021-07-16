@@ -19,7 +19,7 @@ let connection = mysql.createConnection({
  
 // Displays start graphic and starts the init function
 const start = () => {
-    figlet('      E - M - S ', {
+    figlet(' E - M - S ', {
         font: 'Big'
     }, (err, data) => {
         if (err) {
