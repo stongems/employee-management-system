@@ -1,6 +1,5 @@
-const mysql = require("mysql");
+const connection = require("../config/connection");
 const inquirer = require("inquirer");
-const consoleTable = require("console.table");
 
 // connection() maybe
 const department = {
@@ -21,4 +20,4 @@ const department = {
   },
 };
 
-module.export = department;
+module.exports = department;

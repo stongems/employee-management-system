@@ -1,14 +1,27 @@
-const mysql = require("mysql");
+const connection = require("../config/connection");
 const inquirer = require("inquirer");
-const consoleTable = require("console.table");
 
 const role = {
   updateRole() {
     connection.query("SELECT * FROM role", (err, data) => {
       if (err) throw err;
-      // console.log(data);
-      const choices = data.map((role) => role.title);
-      console.log(choices);
+
+      // Here we are taking the data that we got back from mysql
+      // and we are restructuring it into a format that works better with inquirer
+      /**
+ before: 
+  {
+    id: 8,
+    title: 'lawyer',
+    salary: 190000,
+    department_id: 4
+  }
+  after: { name: 'lawyer', value: 8 }
+       */
+      const choices = data.map((role) => ({
+        name: role.title,
+        value: role.id,
+      }));
 
       inquirer
         .prompt([
@@ -26,15 +39,17 @@ const role = {
         ])
         .then(function (data) {
           console.log(data.newRole);
-          connection.query(
+          const query = connection.query(
+            // example: UPDATE role SET `title` = 'Best Sales Person' WHERE `id` = 1
             `UPDATE role SET ? WHERE ?`,
-            [{ title: `${data.newRole}` }, { title: `${data.update}` }],
+            [{ title: data.newRole }, { id: data.update }],
             (err, res) => {
               if (err) throw err;
               console.log(res);
               readRoles();
             }
           );
+          console.log(query.sql); // for debugging purposes only, not needed
         });
     });
   },
@@ -68,4 +83,5 @@ const role = {
       });
   },
 };
-module.export = role;
+
+module.exports = role;
