@@ -1,4 +1,5 @@
 # Employee-Management-System
+HW #12 UofA coding bootcamp
 
 ## Description
 
@@ -24,7 +25,7 @@ This application runs with Node.js and MySQL. The user can view and save informa
 
 ## Installation
 
-To install the necessary dependencies, right-click on the db/ directory, open the intregrated terminal, and run this command:
+To install needed dependencies, right-click on the db.js directory, open the integrated terminal, and run command:
 
 ```
 npm i
@@ -56,7 +57,7 @@ To create the tables copy the absolute path of the schema.sql. Then type in sour
 source: <file path to schema.sql>
 ```
 
-If you would like to seed the table with our created values, then copy the absolute path to seed.sql and run this in the terminal:
+If you would like to seed the table with the created values, then copy the "absolute path" to seed.sql and run this in the terminal:
 
 ```
 source: <file path to seed.sql>
@@ -70,13 +71,13 @@ To view the tables and edit their content, run the following command:
 node index.js
 ```
 
-Inquirer will prompt you with a list of options to view, update, or add to certain tables.
+Inquirer will prompt you with a list of options to view, update, or add to the tables.
 
-> For a demo of this application, [Watch Here](https://drive.google.com/#)
+> For the video demo of this app, [Watch Here](https://drive.google.com/file/d/1nDNyiyl8ZSgzqtP8v3pzlDD9UH3Mb_HB/view)
 
 ## Credits
 
-MIT badge was accessed from GitHub user [Lukas Himsel](https://gist.github.com/lukas-h/2a5d00690736b4c3a7ba)
+MIT badge is displayed using another GitHub user links [Lukas Himsel](https://gist.github.com/lukas-h/2a5d00690736b4c3a7ba)
 
 ## Questions
 
